@@ -5354,7 +5354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpd: 10
-  cam: {fileID: 0}
+  cam: {fileID: 471299905}
   rb: {fileID: 3291418563302342939}
 --- !u!50 &3291418563302342939
 Rigidbody2D:
