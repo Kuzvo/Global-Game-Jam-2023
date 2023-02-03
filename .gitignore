@@ -2,13 +2,14 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Mm]emoryCaptures/
+Global Game Jam/[Ll]ibrary/
+Global Game Jam/[Tt]emp/
+Global Game Jam/[Oo]bj/
+Global Game Jam/[Bb]uild/
+Global Game Jam/[Bb]uilds/
+Global Game Jam/[Ll]ogs/
+Global Game Jam/[Mm]emoryCaptures/
+Global Game Jam/UserSettings/Layouts/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
