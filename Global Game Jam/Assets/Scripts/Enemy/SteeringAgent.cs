@@ -178,7 +178,7 @@ if (distance < 5f)
     if (col.gameObject.name == "Player Model")
     {
         hasAttacked = true;
-        GameManager.Instance.audioManager.PlayAttackNoise();
+       // GameManager.Instance.audioManager.PlayAttackNoise();
     }
  }
 }
