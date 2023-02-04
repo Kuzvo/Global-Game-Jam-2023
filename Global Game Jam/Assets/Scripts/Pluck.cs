@@ -9,7 +9,6 @@ public class Pluck : MonoBehaviour
 
     private void Start() 
     {
-        chainStart = GetComponent<Rigidbody2D>();
     }
 
     private void Update() 
@@ -17,7 +16,9 @@ public class Pluck : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            chainStart.bodyType = RigidbodyType2D.Dynamic;
             chainStart.AddForce(transform.up * pluckStrength);
+            Destroy(this.GetComponent<PlayerMovement>());
         }
 
 
