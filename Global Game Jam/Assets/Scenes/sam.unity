@@ -283,6 +283,8 @@ GameObject:
   - component: {fileID: 1176441686}
   - component: {fileID: 1176441685}
   - component: {fileID: 1176441687}
+  - component: {fileID: 1176441689}
+  - component: {fileID: 1176441688}
   m_Layer: 0
   m_Name: w
   m_TagString: Untagged
@@ -373,6 +375,40 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1176441688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176441684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193e39a7aec2e1b4d9784ce88ba6e479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxUpdateTimeInSecondsForAI: 0.1
+  <MaxCurrentSpeed>k__BackingField: 400
+  <MaxSteeringSpeed>k__BackingField: 100
+  <CurrentVelocity>k__BackingField: {x: 0, y: 0, z: 0}
+  <SteeringVelocity>k__BackingField: {x: 0, y: 0, z: 0}
+  steeringBehvaiours: []
+  updateTimeInSecondsForAI: 0
+--- !u!114 &1176441689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176441684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1b6a1fdbc24a24c8aed2d73cce5696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ShowDebugLines>k__BackingField: 1
+  desiredVelocity: {x: 0, y: 0, z: 0}
+  steeringVelocity: {x: 0, y: 0, z: 0}
 --- !u!1 &1699894597
 GameObject:
   m_ObjectHideFlags: 0
