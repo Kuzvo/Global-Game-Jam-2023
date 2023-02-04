@@ -2393,7 +2393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chainStart: {fileID: 1884131439}
-  pluckStrength: -75000
+  pluckStrength: -25000
 --- !u!1 &922584118
 GameObject:
   m_ObjectHideFlags: 0

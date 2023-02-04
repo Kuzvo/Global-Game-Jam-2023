@@ -28,6 +28,10 @@ Vector3 camVec;
     void Update()
     {
         PlayerMove();
+
+        if (Input.GetKeyDown(KeyCode.U)) {
+            cam = null;
+        }
     }
 
     void PlayerMove()
@@ -52,5 +56,7 @@ Vector3 camVec;
        camVec = new Vector3(transform.position.x, transform.position.y, cam.transform.position.z);
 
        cam.transform.position = camVec;
+
+       
     }
 }
