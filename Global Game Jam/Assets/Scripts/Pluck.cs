@@ -17,13 +17,18 @@ public class Pluck : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             chainStart.bodyType = RigidbodyType2D.Dynamic;
-            chainStart.AddForce(transform.up * pluckStrength);
             Destroy(this.GetComponent<PlayerMovement>());
+            StartCoroutine(PluckAway());
         }
+    }
 
-
-
-
+    IEnumerator PluckAway()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            chainStart.AddForce(transform.up * pluckStrength);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
 
