@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Retraction : MonoBehaviour
 {
     /*
      * Retraction functionality:
@@ -13,7 +13,7 @@ public class NewBehaviourScript : MonoBehaviour
      */
 
     public bool canMove;
-    public float hubLocation;
+    public GameObject hubLocation;
     public GameObject player;
     public float timer;
 
@@ -24,8 +24,23 @@ public class NewBehaviourScript : MonoBehaviour
 
     void Update()
     {
-        if(timer == 0) {
+        if(Input.GetKey(KeyCode.Space))
+            {
+            //add force here on chain
+            //coroutine
+
+            player.transform.position = hubLocation.transform.position;
 
         }
+    }
+
+
+    IEnumerator TendrilAnimation() 
+    {
+
+
+       yield return new WaitForSeconds(2.5f);
+
+
     }
 }
