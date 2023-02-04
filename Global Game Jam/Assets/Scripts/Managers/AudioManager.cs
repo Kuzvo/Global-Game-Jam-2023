@@ -5,37 +5,94 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
 
-public AudioSource audioSource;
-  public List<AudioClip> music = new List<AudioClip>();
+[SerializeField] List<AudioSource> music = new List<AudioSource>();
+
+[SerializeField] AudioSource audioSource;
+
+
+AudioSource currentMusic;
+AudioSource nextMusic;
 
 bool transMusic;
+bool transDangerMusic;
 
-public float volume;
- 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+bool isDangerMusicOn;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (transMusic == true)
-        {
-          TransitionMusic(music[0], music[1]);
-        }
-    }
 
-   void PlayMusic(AudioClip music)
-   {
-    audioSource.PlayOneShot(music, volume);
-   }
+void Start()
+{
+  currentMusic = music[0];
+  nextMusic = music[1];
+}
 
-//https://www.youtube.com/watch?v=1VXeyeLthdQ
-      void TransitionMusic(AudioClip startMusic, AudioClip endMusic)
-      {
+void Update()
+{
 
-      }
+if(Input.GetMouseButtonDown(0))
+{  
+  transMusic = true;
+}
 
+if(Input.GetMouseButtonDown(1))
+{  
+  transDangerMusic = true;
+}
+
+if (transMusic)
+{
+  TransitionMusic(currentMusic, nextMusic);
+}
+
+if (transDangerMusic)
+{
+TransitionDangerMusic();
+}
+
+}
+
+void TransitionMusic(AudioSource startMusic, AudioSource endMusic)
+{
+
+  if (music[2].volume == 0f)
+  {
+startMusic.volume -= 0.0005f;
+endMusic.volume += 0.0005f;
+
+if ( currentMusic.volume == 0f && endMusic.volume == 1f)
+{
+transMusic = false;
+
+nextMusic = startMusic;
+currentMusic = endMusic;
+
+}
+  }
+
+}
+void TransitionDangerMusic()
+{
+  if (isDangerMusicOn == false)
+  {
+currentMusic.volume -= 0.0005f;
+music[2].volume += 0.0005f;
+
+if ( currentMusic.volume == 0f && music[2].volume == 1f)
+{
+transDangerMusic = false;
+isDangerMusicOn = true;
+
+}
+  }
+else 
+{ 
+
+currentMusic.volume += 0.0005f;
+music[2].volume -= 0.0005f;
+if ( currentMusic.volume == 1f && music[2].volume == 0f)
+{
+transDangerMusic = false;
+isDangerMusicOn = false;
+}
+}
+}
 }
