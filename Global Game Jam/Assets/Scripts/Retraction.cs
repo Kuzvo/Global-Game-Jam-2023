@@ -16,6 +16,7 @@ public class Retraction : MonoBehaviour
     public GameObject hubLocation;
     public GameObject player;
     public float timerEmpty;
+    public float initTimer;
     public float timeRemaining;
 
     public bool gameState = true;
@@ -26,8 +27,8 @@ public class Retraction : MonoBehaviour
     void Start() 
     {
         canMove = true;
-        timerEmpty = 0f;
-        timeRemaining = 60f;
+        timeRemaining = initTimer;
+       
     }
 
     void Update()
@@ -38,15 +39,13 @@ public class Retraction : MonoBehaviour
         }
         else 
         {
-            timeRemaining = 60f;
+            timeRemaining = initTimer;
         }
-
-
+        
         if(timeRemaining <= timerEmpty)
             {
             StartCoroutine(TendrilAnimation());
 
-            player.transform.position = hubLocation.transform.position;
         }
     }
 
@@ -54,5 +53,7 @@ public class Retraction : MonoBehaviour
     {
        Debug.Log("QUEUE ANIMATION");
        yield return new WaitForSeconds(2.5f);
+       
+       player.transform.position = hubLocation.transform.position;
     }
 }

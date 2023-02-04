@@ -951,7 +951,11 @@ MonoBehaviour:
   canMove: 0
   hubLocation: {fileID: 1545561822}
   player: {fileID: 936054606}
-  timer: 0
+  timerEmpty: 0
+  initTimer: 5
+  timeRemaining: 0
+  gameState: 1
+  gameManager: {fileID: 0}
 --- !u!4 &1570269896
 Transform:
   m_ObjectHideFlags: 0
