@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public float timerForLevel = 120;
     private float timeLeft;
 
+    public AudioManager audioManager { get; private set; }
+
     private void Awake()
     {
         // Delete other instances
