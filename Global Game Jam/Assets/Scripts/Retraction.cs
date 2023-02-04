@@ -15,32 +15,44 @@ public class Retraction : MonoBehaviour
     public bool canMove;
     public GameObject hubLocation;
     public GameObject player;
-    public float timer;
+    public float timerEmpty;
+    public float timeRemaining;
+
+    public bool gameState = true;
+
+    [SerializeField]
+    public GameManager gameManager;
 
     void Start() 
     {
         canMove = true;
+        timerEmpty = 0f;
+        timeRemaining = 60f;
     }
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.Space))
+        if (timeRemaining > 0f && gameState == true) 
+        {
+            timeRemaining -= Time.deltaTime;
+        }
+        else 
+        {
+            timeRemaining = 60f;
+        }
+
+
+        if(timeRemaining <= timerEmpty)
             {
-            //add force here on chain
-            //coroutine
+            StartCoroutine(TendrilAnimation());
 
             player.transform.position = hubLocation.transform.position;
-
         }
     }
 
-
     IEnumerator TendrilAnimation() 
     {
-
-
+       Debug.Log("QUEUE ANIMATION");
        yield return new WaitForSeconds(2.5f);
-
-
     }
 }
