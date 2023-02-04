@@ -18,6 +18,8 @@ bool transDangerMusic;
 
 bool isDangerMusicOn;
 
+AudioClip stalkerAttackNoise;
+AudioClip creeperExplosion;
 
 void Start()
 {
@@ -95,4 +97,16 @@ isDangerMusicOn = false;
 }
 }
 }
+
+
+public void PlayStalkerAttack()
+{
+  audioSource.PlayOneShot(stalkerAttackNoise);
+}
+
+public void PlayCreeperExplosion()
+{
+  audioSource.PlayOneShot(creeperExplosion);
+}
+
 }
