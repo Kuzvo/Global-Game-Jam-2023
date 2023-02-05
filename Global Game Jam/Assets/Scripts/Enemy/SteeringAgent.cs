@@ -180,14 +180,7 @@ void CreeperCheck()
 
 if (distance < creeperExplosionDistance/ 2)
 {
-	int counter = 0;
     CurrentVelocity = new Vector3(0f, 0f, 0f);
-if (counter < 1)
-{
-	counter ++;
-	//	GameManager.Instance.audioManager.PlayCreeperWindup();
-}
-
     StartCoroutine(CreeperExplode());
 }
 }
@@ -195,17 +188,23 @@ if (counter < 1)
 
        IEnumerator CreeperExplode()
     {
-      yield return new WaitForSeconds (2f);
-    // play animattion
+      yield return new WaitForSeconds (1.5f);
 		anim.Play("CreeperExplodeAnim");
+    }
+
+void CreeperWindUpNoise()
+{
     GameManager.Instance.audioManager.PlayCreeperExplosion();
-    if (distance < creeperExplosionDistance)
+}
+
+void CreeperEffectAnim()
+{
+	    if (distance < creeperExplosionDistance)
     {
         player.GetComponent<PlayerMovement>().DamagePlayer(1);
-   
     }
 	     Destroy(gameObject);
-    }
+}
 
 	protected virtual void CooperativeArbitration()
 	{
