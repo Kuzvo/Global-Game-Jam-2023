@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
-
+    [SerializeField]
+    AudioMixer audioMixer;
 
     public void Play()
     {
@@ -34,8 +35,8 @@ public class MainMenu : MonoBehaviour
     {
         // Set Value
         Debug.Log("MUSIC ADJUSTED");
-        GameManager.Instance.audioManager.GetSliderMax(value);
-        
+
+        audioMixer.SetFloat("musicVolume", value);
     }
 
     public void ChangeScreenSettings(int index)

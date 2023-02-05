@@ -6,10 +6,13 @@ public class SteeringAgent : MonoBehaviour
 {
 
 // pay dylan
-
+public float creeperExplosionDistance;
 public float enemyFOV;
 [SerializeField] bool seenPlayer;
 public float stalkerDamageDistance;
+
+
+[SerializeField] Animator anim;
 
 	protected const float DefaultUpdateTimeInSecondsForAI = 0.1f;
 
@@ -88,7 +91,7 @@ if (distance < enemyFOV)
 {
 	seenPlayer = true;
 }	
-else if(!seenPlayer)
+else if(distance > enemyFOV)
 {
 	seenPlayer = false;
 
@@ -121,7 +124,7 @@ transform.Rotate(0,180f,0);
 facingright = false;
 }
 }
-
+CreeperCheck();
  
 	}
 
@@ -129,12 +132,14 @@ facingright = false;
 IEnumerator StalkerReagress()
 {
 
-       yield return new WaitForSeconds (3f);
+       yield return new WaitForSeconds (1.5f);
 
        hasAttacked = false;
        if (audioCounter == 0)
        {
+
 			   	transform.Rotate(0,180,0);
+		
         audioCounter += 1;
         GameManager.Instance.audioManager.PlayStalkerReagress();
         }
@@ -161,7 +166,8 @@ yield return new WaitForSeconds (0.3f);
 		
        Vector3 prevPoint = new Vector3(transform.position.x,transform.position.y, transform.position.z );
             stalkerPrefab = (GameObject)Instantiate(stalkerPrefab, prevPoint, Quaternion.identity);
-Destroy(gameObject);   	transform.Rotate(0,180,0);
+  	transform.Rotate(0,180,0);
+Destroy(gameObject); 
                player.GetComponent<PlayerMovement>().DamagePlayer(1); 
               GameManager.Instance.audioManager.PlayStalkerAttack();
             
@@ -172,9 +178,16 @@ void CreeperCheck()
     if (gameObject.tag == "Creeper")
 {
 
-if (distance < 5f)
+if (distance < creeperExplosionDistance/ 2)
 {
+	int counter = 0;
     CurrentVelocity = new Vector3(0f, 0f, 0f);
+if (counter < 1)
+{
+	counter ++;
+	//	GameManager.Instance.audioManager.PlayCreeperWindup();
+}
+
     StartCoroutine(CreeperExplode());
 }
 }
@@ -182,14 +195,16 @@ if (distance < 5f)
 
        IEnumerator CreeperExplode()
     {
-      yield return new WaitForSeconds (3f);
+      yield return new WaitForSeconds (2f);
     // play animattion
+		anim.Play("CreeperExplodeAnim");
     GameManager.Instance.audioManager.PlayCreeperExplosion();
-    if (distance < 10f)
+    if (distance < creeperExplosionDistance)
     {
-        
-        Destroy(gameObject);
+        player.GetComponent<PlayerMovement>().DamagePlayer(1);
+   
     }
+	     Destroy(gameObject);
     }
 
 	protected virtual void CooperativeArbitration()
