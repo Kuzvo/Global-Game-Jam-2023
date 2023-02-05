@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public float timerForLevel = 120;
     private float timeLeft;
 
+    public AudioManager audioManager { get; private set; }
+
     private void Awake()
     {
         // Delete other instances
@@ -28,9 +30,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+audioManager = GetComponent<AudioManager>();
+
     }
 
-
+/*
     private void Update()
     {
         // If game state is stopped, do not count
@@ -79,4 +84,5 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Main Scene");
     }
+    */
 }
