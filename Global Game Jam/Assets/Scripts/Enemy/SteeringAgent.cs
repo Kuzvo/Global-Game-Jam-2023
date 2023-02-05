@@ -201,36 +201,4 @@ if (distance < 5f)
 			transform.up = Vector3.Normalize(new Vector3(CurrentVelocity.x, CurrentVelocity.y, 0.0f));
 		}
 	}
-
-/*
- void OnTriggerEnter2D(Collider2D col)
-{
-    if (col.gameObject.name == "Player Model" && gameObject.tag == "Stalker")
-    { 
-        if (hasAttacked == false)
-        {
-
-           GameManager.Instance.audioManager.PlayStalkerAttack();
-           player.GetComponent<PlayerMovement>().DamagePlayer(1); 
-           print(player.GetComponent<PlayerMovement>().playerHealth);
-           StartCoroutine(DumbCol());
-        }
-    }
- }
- void OnTriggerStay2D(Collider2D col)
-{
-    if (col.gameObject.name == "Player Model" && gameObject.tag == "Stalker")
-    { 
-        if (hasAttacked == false)
-        {
-hasAttacked = true;
-
-        }
-    }
- }
-IEnumerator DumbCol()
-{
-yield return new WaitForSeconds (0.1f);
-}
-*/
 }

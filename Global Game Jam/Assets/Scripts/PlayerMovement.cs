@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
+    public float playerHealth;
+
+bool hasIFrames;
+
  [SerializeField] float playerSpd;
  float moveX;
  float moveY;
@@ -15,16 +19,18 @@ public class PlayerMovement : MonoBehaviour
 
 Vector3 camVec;
 
-public float playerHealth;
+    public Sprite idle;
+    public Sprite right;
+    public Sprite left;
 
-bool hasIFrames;
-
- [SerializeField] Rigidbody2D rb;
+    [SerializeField] Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Awake()
     {
       facingRight = true;
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = idle;
+
     }
 
     // Update is called once per frame
@@ -42,19 +48,22 @@ bool hasIFrames;
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
 
-           if (facingRight == true && moveX < 0)
-           {
-              transform.Rotate(0f, 180f, 0f);
-              facingRight = false;
-           }
-           if (facingRight == false && moveX > 0)
-           {
-              transform.Rotate(0f, -180f, 0f);
-              facingRight = true;
-           }
+        if (rb.velocity.magnitude < 0.1f) {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = idle;
+
+        } else if (rb.velocity.magnitude > 0.1f && Input.GetKeyDown(KeyCode.A)) {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = left;
+
+        } else if (rb.velocity.magnitude > 0.1f && Input.GetKeyDown(KeyCode.D)) {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = right;
+        }
 
 
-       rb.velocity = new Vector2( playerSpd * moveX, playerSpd * moveY);
+
+
+
+
+        rb.velocity = new Vector2( playerSpd * moveX, playerSpd * moveY);
 
        camVec = new Vector3(transform.position.x, transform.position.y, cam.transform.position.z);
 
