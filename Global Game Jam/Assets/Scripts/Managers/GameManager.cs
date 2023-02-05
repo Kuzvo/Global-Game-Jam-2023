@@ -43,7 +43,6 @@ public bool respawn;
     {
         Timer();
     
-    
     }
 
 

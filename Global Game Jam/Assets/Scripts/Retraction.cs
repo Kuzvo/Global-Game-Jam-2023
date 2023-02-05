@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Retraction : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Retraction : MonoBehaviour
     public bool canMove;
     public GameObject hubLocation;
     public GameObject player;
+    public GameObject playerPrefab;
+    public GameObject pluck;
    
 
     public bool gameState = true;
@@ -25,7 +28,7 @@ public class Retraction : MonoBehaviour
     void Start() 
     {
         canMove = true;
-         player = GameObject.FindGameObjectWithTag("Player");
+        
        
     }
 
@@ -43,8 +46,9 @@ public class Retraction : MonoBehaviour
 
     IEnumerator TendrilAnimation() 
     {
-        yield return null;
-       
-       player.transform.position = hubLocation.transform.position;
+        pluck.GetComponent<Pluck>().Plucknfuck();
+        yield return new WaitForSeconds(2.0f);
+        Destroy(player);
+        
     }
 }

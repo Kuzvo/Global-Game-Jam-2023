@@ -5,10 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     public float playerHealth = 3;
-
-  
 
 bool hasIFrames;
 
@@ -31,24 +28,18 @@ Vector3 camVec;
     public Sprite flicker;
     public Sprite dead;
 
-    
-
     [SerializeField] Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Awake()
     {
-      
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = idle;
-       
-
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = idle;  
     }
 
     // Update is called once per frame
     void Update()
     {
         PlayerMove();
-
     }
 
     void PlayerMove()
