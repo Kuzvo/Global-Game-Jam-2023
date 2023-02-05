@@ -4,6 +4,12 @@ using System.Collections;
 
 public class SteeringAgent : MonoBehaviour
 {
+
+// pay dylan
+
+
+public float stalkerDistance;
+
 	protected const float DefaultUpdateTimeInSecondsForAI = 0.1f;
 
 	/// <summary>
@@ -82,7 +88,27 @@ StartCoroutine(StalkerReagress());
 
 distance = (player.gameObject.transform.position - transform.position).magnitude;
 
+
+float flipDis= (player.gameObject.transform.position.x - transform.position.x);
+
+
 StalkerDistanceCheck();
+
+if (!hasAttacked)
+{
+if (flipDis > 0 && !facingright)
+{
+	transform.Rotate(0,180,0);
+	facingright = true;
+}
+else if (flipDis < 0 && facingright)
+{
+transform.Rotate(0,180f,0);
+facingright = false;
+}
+}
+
+ 
 	}
 
 
@@ -90,9 +116,11 @@ IEnumerator StalkerReagress()
 {
 
        yield return new WaitForSeconds (3f);
+
        hasAttacked = false;
        if (audioCounter == 0)
        {
+			   	transform.Rotate(0,180,0);
         audioCounter += 1;
         GameManager.Instance.audioManager.PlayStalkerReagress();
         }
@@ -103,7 +131,7 @@ void StalkerDistanceCheck()
 {
     if (gameObject.tag == "Stalker")
     { 
-      if (hasAttacked == false && distance < 3f)
+      if (hasAttacked == false && distance < stalkerDistance)
         {
               hasAttacked = true;
              
@@ -116,9 +144,10 @@ void StalkerDistanceCheck()
 IEnumerator DumbCol()
 {
 yield return new WaitForSeconds (0.3f); 
+		
        Vector3 prevPoint = new Vector3(transform.position.x,transform.position.y, transform.position.z );
             stalkerPrefab = (GameObject)Instantiate(stalkerPrefab, prevPoint, Quaternion.identity);
-Destroy(gameObject);   
+Destroy(gameObject);   	transform.Rotate(0,180,0);
                player.GetComponent<PlayerMovement>().DamagePlayer(1); 
               GameManager.Instance.audioManager.PlayStalkerAttack();
             
@@ -149,17 +178,6 @@ if (distance < 5f)
     }
     }
 
-	/// <summary>
-	/// This is responsible for how to deal with multiple behaviours and selecting which ones to use. Please see this link for some decent descriptions of below:
-	/// https://alastaira.wordpress.com/2013/03/13/methods-for-combining-autonomous-steering-behaviours/
-	/// Remember some options for choosing are:
-	/// 1 Finite state machines which can be part of the steering behaviours or not (Not the best approach but quick)
-	/// 2 Weighted Truncated Sum
-	/// 3 Prioritised Weighted Truncated Sum
-	/// 4 Prioritised Dithering
-	/// 5 Context Behaviours: https://andrewfray.wordpress.com/2013/03/26/context-behaviours-know-how-to-share/
-	/// 6 Any other approach you come up with
-	/// </summary>
 	protected virtual void CooperativeArbitration()
 	{
 		SteeringVelocity = Vector3.zero;
@@ -191,18 +209,4 @@ if (distance < 5f)
 		transform.position += CurrentVelocity * Time.deltaTime;
 
 	}
-
-	/// <summary>
-	/// Sets the direction of the triangle to the direction it is moving in to give the illusion it is turning. Try taking out the function
-	/// call in Update() to see what happens
-	/// </summary>
-/*	protected virtual void UpdateDirection()
-	{
-		// Don't set the direction if no direction
-		if (CurrentVelocity.sqrMagnitude > 0.0f)
-		{
-			transform.up = Vector3.Normalize(new Vector3(CurrentVelocity.x, CurrentVelocity.y, 0.0f));
-		}
-	}#
-    */
 }
