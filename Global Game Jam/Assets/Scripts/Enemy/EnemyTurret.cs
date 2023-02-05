@@ -28,19 +28,11 @@ public class EnemyTurret : MonoBehaviour
 
     // Waits two seconds after being closely locked on before firing
     public float timeToFire = 2f;
-    public void Start()
+    public void Awake()
     {
+
+        player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(CheckDistance());
-        // Finds the player game object
-        try
-        {
-            player = GameObject.Find("Player Model");
-        }
-        catch
-        {
-            Debug.Log("Players name is not: Player Model");
-        }
-        
     }
     private void Update()
     {

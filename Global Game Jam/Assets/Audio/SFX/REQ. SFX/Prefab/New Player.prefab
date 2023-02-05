@@ -7801,7 +7801,7 @@ GameObject:
   - component: {fileID: 733811123}
   m_Layer: 0
   m_Name: Player Model
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7912,6 +7912,8 @@ MonoBehaviour:
   idle: {fileID: 21300000, guid: 8bbd28dee23180c46b5637f1271ba600, type: 3}
   right: {fileID: 21300000, guid: 7915ce4cc1254ce44b84436763860e2c, type: 3}
   left: {fileID: 21300000, guid: 02d70ef81993c8d49ae1f163576fd36f, type: 3}
+  flicker: {fileID: 0}
+  dead: {fileID: 0}
   rb: {fileID: 7813210210503856170}
 --- !u!114 &7813210210503856180
 MonoBehaviour:
@@ -7928,6 +7930,7 @@ MonoBehaviour:
   chainStart: {fileID: 7813210209537707243}
   pluckStrength: -250000
   playerMove: {fileID: 0}
+  blood: {fileID: 0}
 --- !u!61 &733811123
 BoxCollider2D:
   m_ObjectHideFlags: 0

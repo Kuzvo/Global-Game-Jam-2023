@@ -15,9 +15,9 @@ public class Bullet : MonoBehaviour
     GameObject Player;
     private void Awake()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         GameManager.Instance.audioManager.PlayTurretShoot();
         startPos = transform.position;
-        Player = GameObject.Find("Player Model");
     }
     private void Update()
     {
