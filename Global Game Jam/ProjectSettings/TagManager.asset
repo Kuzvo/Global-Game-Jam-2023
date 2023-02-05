@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Creeper
   - Stalker
+  - Pickup
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Transparent
   - Water
   - UI
   - 
