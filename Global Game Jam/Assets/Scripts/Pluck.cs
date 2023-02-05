@@ -7,20 +7,15 @@ public class Pluck : MonoBehaviour
     public Rigidbody2D chainStart;
     public float pluckStrength = -100f;
 
-    public GameObject playerMove;
     public GameObject blood;
 
     private void Update() 
-    {
-        
+    { 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Plucknfuck();
         }
-
-        
     }
-
     IEnumerator PluckAway()
     {
         for (int i = 0; i < 10; i++)
@@ -38,7 +33,6 @@ public class Pluck : MonoBehaviour
             GetComponent<PlayerMovement>().DamagePlayer(1);
         }
     }
-
 
     public void Plucknfuck() {
         chainStart.bodyType = RigidbodyType2D.Dynamic;

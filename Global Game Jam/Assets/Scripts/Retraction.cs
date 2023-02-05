@@ -15,6 +15,8 @@ public class Retraction : MonoBehaviour
     public bool canMove;
     public GameObject hubLocation;
     public GameObject player;
+    public GameObject playerPrefab;
+    public GameObject pluck;
    
 
     public bool gameState = true;
@@ -43,9 +45,11 @@ public class Retraction : MonoBehaviour
 
     IEnumerator TendrilAnimation() 
     {
-       Debug.Log("QUEUE ANIMATION");
-        yield return null;
-       
-       player.transform.position = hubLocation.transform.position;
+        pluck.GetComponent<Pluck>().Plucknfuck();
+        yield return new WaitForSeconds(2.0f);
+        Destroy(player);
+
+        player = Instantiate(playerPrefab, hubLocation.transform.position, Quaternion.identity, null);
+
     }
 }

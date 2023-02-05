@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
     {
         Timer();
     
-    
     }
 
 

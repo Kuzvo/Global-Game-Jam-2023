@@ -128,7 +128,7 @@ isDangerMusicOn = false;
 }
 }
 }
-
+    /*
 void DeathMusic()
 {
   
@@ -153,7 +153,7 @@ if (music[0].volume == 0)
 }
 
 }
-
+    */
 public void PlayStalkerAttack()
 {
   audioSource.PlayOneShot(stalkerAttack);
