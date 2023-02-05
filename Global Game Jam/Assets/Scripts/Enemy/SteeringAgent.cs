@@ -50,9 +50,10 @@ public class SteeringAgent : MonoBehaviour
  public GameObject player;
 
 public bool hasAttacked;
-
-
 float distance;
+float audioCounter;
+
+public GameObject stalkerPrefab;
 
 	/// <summary>
 	/// Called once per frame
@@ -74,19 +75,51 @@ CreeperCheck();
 
 if (hasAttacked)
 { 
+   // audioCounter = 0;
 StartCoroutine(StalkerReagress());
 }
 
 distance = (player.gameObject.transform.position - transform.position).magnitude;
 
+StalkerDistanceCheck();
 	}
 
 IEnumerator StalkerReagress()
 {
+
        yield return new WaitForSeconds (3f);
        hasAttacked = false;
+       if (audioCounter == 0)
+       {
+        audioCounter += 1;
+        GameManager.Instance.audioManager.PlayStalkerReagress();
+        }
+       
+}
+void StalkerDistanceCheck()
+{
+    if (gameObject.tag == "Stalker")
+    { 
+      if (hasAttacked == false && distance < 3f)
+        {
+              hasAttacked = true;
+             
+              StartCoroutine(DumbCol());  
+        }
+    }  
 }
 
+
+IEnumerator DumbCol()
+{
+yield return new WaitForSeconds (0.3f); 
+       Vector3 prevPoint = new Vector3(transform.position.x,transform.position.y, transform.position.z );
+            stalkerPrefab = (GameObject)Instantiate(stalkerPrefab, prevPoint, Quaternion.identity);
+Destroy(gameObject);   
+               player.GetComponent<PlayerMovement>().DamagePlayer(1); 
+              GameManager.Instance.audioManager.PlayStalkerAttack();
+            
+}
 
 void CreeperCheck()
 {
@@ -108,9 +141,8 @@ if (distance < 5f)
     GameManager.Instance.audioManager.PlayCreeperExplosion();
     if (distance < 10f)
     {
-        print("john");
+        
         Destroy(gameObject);
-
     }
     }
 
@@ -169,17 +201,4 @@ if (distance < 5f)
 			transform.up = Vector3.Normalize(new Vector3(CurrentVelocity.x, CurrentVelocity.y, 0.0f));
 		}
 	}
-
-
- void OnCollisionStay2D(Collision2D col)
-{
- if (gameObject.tag == "Stalker")
- {
-    if (col.gameObject.name == "Player Model")
-    {
-        hasAttacked = true;
-       // GameManager.Instance.audioManager.PlayAttackNoise();
-    }
- }
-}
 }
