@@ -14,6 +14,10 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void ChangeToMainSchene()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
 
     public void SetQualityLevel(int index)
     {
