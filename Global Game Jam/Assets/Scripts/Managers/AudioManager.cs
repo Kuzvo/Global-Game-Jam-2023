@@ -11,10 +11,8 @@ public class AudioManager : MonoBehaviour
 [SerializeField] List<AudioSource> music = new List<AudioSource>();
 
 [SerializeField] AudioSource audioSource;
-[SerializeField] Slider slider;
 
-
-float volume;
+public float volume;
 AudioSource currentMusic;
 AudioSource nextMusic;
 
@@ -43,6 +41,7 @@ void Start()
 {
   currentMusic = music[0];
   nextMusic = music[1];
+
 }
 
 void Update()
@@ -80,7 +79,7 @@ TransitionDangerMusic();
 
 public void GetSliderMax(float value)
 {
-  value = maxVolume;
+  maxVolume = value;
 }
 
 void TransitionMusic(AudioSource startMusic, AudioSource endMusic)
@@ -109,7 +108,7 @@ void TransitionDangerMusic()
 currentMusic.volume -= 0.0005f;
 music[2].volume += 0.0005f;
 
-if ( currentMusic.volume == 0f && music[2].volume == 1f)
+if ( currentMusic.volume == 0f && music[2].volume == maxVolume)
 {
 transDangerMusic = false;
 isDangerMusicOn = true;
@@ -121,7 +120,7 @@ else
 
 currentMusic.volume += 0.0005f;
 music[2].volume -= 0.0005f;
-if ( currentMusic.volume == 1f && music[2].volume == 0f)
+if ( currentMusic.volume == maxVolume && music[2].volume == 0f)
 {
 transDangerMusic = false;
 isDangerMusicOn = false;

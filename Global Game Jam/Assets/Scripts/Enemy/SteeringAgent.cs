@@ -7,8 +7,9 @@ public class SteeringAgent : MonoBehaviour
 
 // pay dylan
 
-
-public float stalkerDistance;
+public float enemyFOV;
+[SerializeField] bool seenPlayer;
+public float stalkerDamageDistance;
 
 	protected const float DefaultUpdateTimeInSecondsForAI = 0.1f;
 
@@ -77,8 +78,21 @@ public GameObject stalkerPrefab;
 			CooperativeArbitration();
 		}
 
+if (seenPlayer)
+{
 		UpdatePosition();
-	
+
+}
+
+if (distance < enemyFOV)
+{
+	seenPlayer = true;
+}	
+else if(!seenPlayer)
+{
+	seenPlayer = false;
+
+}
 
 if (hasAttacked)
 { 
@@ -131,7 +145,7 @@ void StalkerDistanceCheck()
 {
     if (gameObject.tag == "Stalker")
     { 
-      if (hasAttacked == false && distance < stalkerDistance)
+      if (hasAttacked == false && distance < stalkerDamageDistance)
         {
               hasAttacked = true;
              

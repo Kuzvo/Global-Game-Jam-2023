@@ -2,8 +2,6 @@
 
 public class Seek : SteeringBehaviour
 {
-
-	
 	public override Vector3 UpdateBehaviour(SteeringAgent steeringAgent)
 	{
 		// Get the desired velocity for seek and limit to maxSpeed
