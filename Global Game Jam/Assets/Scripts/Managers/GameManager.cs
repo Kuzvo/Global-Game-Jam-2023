@@ -13,9 +13,10 @@ public class GameManager : MonoBehaviour
     // Current Game State
     public bool gameState = true;
 
-    [Range(10.0f, 1080.0f)]
-    public float timerForLevel = 120;
-    private float timeLeft;
+
+    public float timerEmpty;
+    public float initTimer;
+    public float timeRemaining;
 
     public AudioManager audioManager { get; private set; }
 
@@ -31,58 +32,29 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-audioManager = GetComponent<AudioManager>();
+            audioManager = GetComponent<AudioManager>();
+
+        timeRemaining = initTimer;
 
     }
 
-/*
+
     private void Update()
     {
-        // If game state is stopped, do not count
-        if (gameState != false)
-            timeLeft -= Time.deltaTime;
-        // If timer has not concluded
-        if (timeLeft > 0)
-            UpdateTimer();
-        // Timer has concluded
-        else
-            Restart();
+        Timer();
+    
+    
     }
 
-    private void UpdateTimer()
-    {
-        int timeInMinutes = (int)(timeLeft / 60.0f);
-        int timeInSeconds = (int)(timeLeft) - (timeInMinutes * 60);
 
-        // Deal with text
-        if (timeInSeconds < 10);
-        // Update Text with time in minutes.
-        else;
-        // Update Text with time in seconds.
-    }
+    public void Timer() {
 
-    public void PauseGame()
-    {
-        Debug.Log("Pause Game");
-        gameState = !gameState;
-
-        if (gameState)
-        {
-            // Enable Controls
-            // Hide UI
+        if (timeRemaining > 0f && gameState == true) {
+            timeRemaining -= Time.deltaTime;
+        } else {
+            timeRemaining = initTimer;
         }
-        else
-        {
-            // Disable Controls
-            // Show UI
-            // Change Cursor State
-        }
+
     }
 
-    // Restart
-    public void Restart()
-    {
-        SceneManager.LoadScene("Main Scene");
-    }
-    */
 }
