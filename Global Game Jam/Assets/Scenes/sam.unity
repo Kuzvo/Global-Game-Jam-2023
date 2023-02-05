@@ -881,8 +881,32 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: c1e0873e5711fe24594a7b2aa6e2bb19, type: 3}
     - target: {fileID: 4670298062147688253, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
       propertyPath: ambience.Array.size
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4670298062147688253, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: ambience.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 38f180bf7e9c1df4781566a98c3b65a8, type: 3}
+    - target: {fileID: 4670298062147688253, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: ambience.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6d92a8daf58f0de4e9ed04975efdeb44, type: 3}
+    - target: {fileID: 4670298062147688253, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: ambience.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 803f4861807c5ee40992c5ac12a999c2, type: 3}
+    - target: {fileID: 4670298062147688253, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: ambience.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: f9a52712efbb6de468a3c454a783f9b0, type: 3}
+    - target: {fileID: 4670298062147688253, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: ambience.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: b12a8fc5d8e53d7469f4b709b4a1f476, type: 3}
+    - target: {fileID: 4670298062147688253, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: ambience.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 78691b27c1040984c87e8e9849a5e305, type: 3}
     - target: {fileID: 4670298062147688254, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
