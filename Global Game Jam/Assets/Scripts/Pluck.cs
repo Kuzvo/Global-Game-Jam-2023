@@ -25,7 +25,7 @@ public class Pluck : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene("Finn");
+        SceneManager.LoadScene("Sam");
     }
 
     public void OnTriggerEnter2D(Collider2D col) 
