@@ -96,15 +96,10 @@ if (seenPlayer)
 if (distance < enemyFOV)
 {
 	seenPlayer = true;
-	GameManager.Instance.audioManager.transDangerMusic = true;
 }	
 else if(distance > enemyFOV)
 {
 	seenPlayer = false;
-	if (GameManager.Instance.audioManager.music[3].volume == 1)
-	{
-	GameManager.Instance.audioManager.transDangerMusic = false;
-	}
 }
 
 if (hasAttacked)

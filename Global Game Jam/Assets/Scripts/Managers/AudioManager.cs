@@ -54,7 +54,7 @@ if (timer > timerMax)
 }
 
 MusicManager();
-/*
+
 if (transMusic)
 {
   TransitionMusic(currentMusic, nextMusic);
@@ -64,7 +64,7 @@ if (transDangerMusic)
 {
 TransitionDangerMusic();
 }
-*/
+
 }
 
 
@@ -117,33 +117,19 @@ isDangerMusicOn = false;
 
 void MusicManager()
 {
-  
-if ( GameManager.Instance.timeRemaining > GameManager.Instance.initTimer / 4 * 3)
-{
+  if (GameManager.Instance.respawn == true)
+  {
 music[0].Play();
-}
-else if ( GameManager.Instance.timeRemaining < GameManager.Instance.initTimer / 4* 3 &&GameManager.Instance.initTimer > GameManager.Instance.initTimer / 4 * 2 )
+music[2].Stop();
+  }
+if (GameManager.Instance.timeRemaining > GameManager.Instance.initTimer / 2)
 {
-music[1].Play();
-music[0].volume -= 0.0005f;
-music[1].volume += 0.0005f;
-
+transMusic = true;
 }
-else if ( GameManager.Instance.timeRemaining < GameManager.Instance.initTimer / 4 * 2 && GameManager.Instance.timeRemaining > GameManager.Instance.initTimer / 4)
+else  if (GameManager.Instance.timeRemaining < GameManager.Instance.initTimer / 2)
 {
-music[2].Play();
-music[1].volume -= 0.0005f;
-music[2].volume += 0.0005f;
-
-} 
-else if ( GameManager.Instance.timeRemaining < GameManager.Instance.initTimer / 4)
-{
-music[3].Play();
-music[2].volume -= 0.0005f;
-music[3].volume += 0.0005f;
-
+  transDangerMusic = true;
 }
-
 }
 
 

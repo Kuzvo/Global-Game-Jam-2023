@@ -46539,6 +46539,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 277780510, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 309728561, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670298062147688250, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670298062147688250, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4670298062147688251, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
       propertyPath: m_Name
       value: Audio Manager
@@ -46602,6 +46618,22 @@ PrefabInstance:
     - target: {fileID: 4670298062147688253, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
       propertyPath: timerMax
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670298062147688254, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670298062147688254, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670298062147688255, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670298062147688255, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
