@@ -146,7 +146,7 @@ public void PlayStalkerReagress()
 }
 public void PlayCreeperExplosion()
 {
-  audioSource.PlayOneShot(creeperExplosion, volume);
+  audioSource.PlayOneShot(creeperExplosion);
 }
 public void PlayTurretShoot()
 {
