@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,9 +16,12 @@ bool hasIFrames;
  float moveX;
  float moveY;
 
+    public Image heart1;
+    public Image heart2;
+    public Image heart3;
 
 
-[SerializeField] Camera cam;
+    [SerializeField] Camera cam;
 
 Vector3 camVec;
 
@@ -80,6 +84,7 @@ public void DamagePlayer(int damage)
     hasIFrames = true;
     playerHealth -= damage;
             StartCoroutine(DamageFlicker());
+            StartCoroutine(HeartReduce());
     StartCoroutine(RemoveIFrames());
     if (playerHealth == 0)
     {
@@ -101,5 +106,21 @@ IEnumerator DamageFlicker() {
         yield return new WaitForSeconds(0.1f);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = idle;
 
+    }
+
+    IEnumerator HeartReduce() {
+
+        if(heart3.enabled) {
+            
+            heart3.enabled = !heart3.enabled;
+        }
+        else if (!heart3.enabled && heart2.enabled) {
+            heart2.enabled = !heart2.enabled;
+        }
+        else if (!heart3.enabled && !heart2.enabled) {
+            heart1.enabled = !heart1.enabled;
+        }
+
+        yield return null;
     }
 }
