@@ -7,19 +7,17 @@ public class Pluck : MonoBehaviour
     public Rigidbody2D chainStart;
     public float pluckStrength = -100f;
 
-    private void Start() 
-    {
-    }
+    public GameObject playerMove;
 
     private void Update() 
     {
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            chainStart.bodyType = RigidbodyType2D.Dynamic;
-            Destroy(this.GetComponent<PlayerMovement>());
-            StartCoroutine(PluckAway());
+            Plucknfuck();
         }
+
+        
     }
 
     IEnumerator PluckAway()
@@ -31,5 +29,18 @@ public class Pluck : MonoBehaviour
         }
     }
 
+    public void OnTriggerEnter2D(Collider2D col) 
+    {
+        if (col.tag == "Spikes") {
 
+            GetComponent<PlayerMovement>().DamagePlayer(1);
+        }
+    }
+
+
+    public void Plucknfuck() {
+        chainStart.bodyType = RigidbodyType2D.Dynamic;
+        Destroy(this.GetComponent<PlayerMovement>());
+        StartCoroutine(PluckAway());
+    }
 }
