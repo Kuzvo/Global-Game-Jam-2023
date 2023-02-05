@@ -14,7 +14,7 @@ public class WinGame : MonoBehaviour
         win = true;
         for (int i = 0; i < shapePuzzles.Length; i++)
         {
-            if (shapePuzzles[i].complete == true)
+            if (shapePuzzles[i].complete == false)
             {
                 win = false;
             }
