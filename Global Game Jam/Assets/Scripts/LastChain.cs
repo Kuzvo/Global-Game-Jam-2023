@@ -14,6 +14,9 @@ public class LastChain : MonoBehaviour
     bool isAble = true;
     HingeJoint2D hingeJoint2D;
 
+    [SerializeField]
+    float timeBetweenSpawn = 0.25f;
+
     private void Start()
     {
         playerModel = GameObject.Find("Player Model");
@@ -37,7 +40,7 @@ public class LastChain : MonoBehaviour
 
     IEnumerator ChangeActive()
     {
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(timeBetweenSpawn);
         isAble = true;
         hingeJoint2D.breakForce = 1000.0f;
     }
