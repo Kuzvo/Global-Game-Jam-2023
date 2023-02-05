@@ -29,7 +29,8 @@ public class MainMenu : MonoBehaviour
     {
         // Set Value
         Debug.Log("VFX ADJUSTED");
-        GameManager.Instance.audioManager.SetVolume(value);
+        /*GameManager.Instance.audioManager.SetVolume(value);*/
+        audioMixer.SetFloat("sfxVolume", value);
     }
     public void SetMusicVolume(float value)
     {
