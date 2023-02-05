@@ -7,13 +7,15 @@ public class PlayerMovement : MonoBehaviour
 
     public float playerHealth = 3;
 
+  
+
 bool hasIFrames;
 
  [SerializeField] float playerSpd;
  float moveX;
  float moveY;
 
- bool facingRight;
+
 
 [SerializeField] Camera cam;
 
@@ -22,6 +24,8 @@ Vector3 camVec;
     public Sprite idle;
     public Sprite right;
     public Sprite left;
+    public Sprite flicker;
+    public Sprite dead;
 
     
 
@@ -30,8 +34,9 @@ Vector3 camVec;
     // Start is called before the first frame update
     void Awake()
     {
-      facingRight = true;
+      
         this.gameObject.GetComponent<SpriteRenderer>().sprite = idle;
+       
 
     }
 
@@ -57,11 +62,6 @@ Vector3 camVec;
             this.gameObject.GetComponent<SpriteRenderer>().sprite = right;
         }
 
-
-
-
-
-
         rb.velocity = new Vector2( playerSpd * moveX, playerSpd * moveY);
 
        camVec = new Vector3(transform.position.x, transform.position.y, cam.transform.position.z);
@@ -79,9 +79,11 @@ public void DamagePlayer(int damage)
     {
     hasIFrames = true;
     playerHealth -= damage;
+            StartCoroutine(DamageFlicker());
     StartCoroutine(RemoveIFrames());
     if (playerHealth == 0)
     {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = dead;
                 GetComponent<Pluck>().Plucknfuck();
     }
     }
@@ -92,4 +94,12 @@ IEnumerator RemoveIFrames()
 yield return new WaitForSeconds (1f);
 hasIFrames = false;
 }
+
+IEnumerator DamageFlicker() {
+
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = flicker;
+        yield return new WaitForSeconds(0.1f);
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = idle;
+
+    }
 }
