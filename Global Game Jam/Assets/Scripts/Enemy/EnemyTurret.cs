@@ -53,7 +53,7 @@ public class EnemyTurret : MonoBehaviour
     private bool IsVisible()
     {
         var dot = Vector2.Dot(transform.right, (player.transform.position - transform.position).normalized);
-        Debug.Log(dot);
+        
         if (dot > maxFollowAngle)
         {
             // If the player is within the maxDistance (distance between turret and player)

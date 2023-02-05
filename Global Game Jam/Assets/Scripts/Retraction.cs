@@ -25,7 +25,7 @@ public class Retraction : MonoBehaviour
     void Start() 
     {
         canMove = true;
-        
+         player = GameObject.FindGameObjectWithTag("Player");
        
     }
 
@@ -43,7 +43,6 @@ public class Retraction : MonoBehaviour
 
     IEnumerator TendrilAnimation() 
     {
-       Debug.Log("QUEUE ANIMATION");
         yield return null;
        
        player.transform.position = hubLocation.transform.position;
