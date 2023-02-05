@@ -52422,6 +52422,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 733811123, guid: 70ccb354373c6d242ba673a164d719f0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1484252301, guid: 70ccb354373c6d242ba673a164d719f0, type: 3}
       propertyPath: timeBetweenSpawn
       value: 0.15
@@ -52481,6 +52485,10 @@ PrefabInstance:
     - target: {fileID: 1375623533767639857, guid: 70ccb354373c6d242ba673a164d719f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378636272990780763, guid: 70ccb354373c6d242ba673a164d719f0, type: 3}
+      propertyPath: m_Depth
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6302513571875489822, guid: 70ccb354373c6d242ba673a164d719f0, type: 3}
       propertyPath: m_Name
