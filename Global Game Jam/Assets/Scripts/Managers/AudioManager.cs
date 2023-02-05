@@ -1,9 +1,5 @@
 using System.Collections.Generic;
-using System.Collections;
-
 using UnityEngine;
-using UnityEngine.UI;
-
 
 public class AudioManager : MonoBehaviour
 {
@@ -27,8 +23,6 @@ bool isDangerMusicOn;
 [SerializeField] AudioClip creeperExplosion;
 [SerializeField] AudioClip turretShoot;
 [SerializeField] AudioClip creeperWindup;
-
-
 
 [SerializeField] List<AudioClip> ambience = new List<AudioClip>();
 
@@ -59,17 +53,8 @@ if (timer > timerMax)
   timer = 0;
 }
 
-
-if(Input.GetMouseButtonDown(0))
-{  
-  transMusic = true;
-}
-
-if(Input.GetMouseButtonDown(1))
-{  
-  transDangerMusic = true;
-}
-
+MusicManager();
+/*
 if (transMusic)
 {
   TransitionMusic(currentMusic, nextMusic);
@@ -79,7 +64,7 @@ if (transDangerMusic)
 {
 TransitionDangerMusic();
 }
-
+*/
 }
 
 
@@ -132,18 +117,43 @@ isDangerMusicOn = false;
 
 void MusicManager()
 {
-  if (GameManager.Instance.timeRemaining < GameManager.Instance.timeRemaining / 2)
-  {
-  TransitionMusic(currentMusic, nextMusic);
-  }
-  DeathMusic();
+  
+if ( GameManager.Instance.timeRemaining > GameManager.Instance.initTimer / 4 * 3)
+{
+music[0].Play();
+}
+else if ( GameManager.Instance.timeRemaining < GameManager.Instance.initTimer / 4* 3 &&GameManager.Instance.initTimer > GameManager.Instance.initTimer / 4 * 2 )
+{
+music[1].Play();
+music[0].volume -= 0.0005f;
+music[1].volume += 0.0005f;
+print("2");
+
+}
+else if ( GameManager.Instance.timeRemaining < GameManager.Instance.initTimer / 4 * 2 && GameManager.Instance.timeRemaining > GameManager.Instance.initTimer / 4)
+{
+music[2].Play();
+music[1].volume -= 0.0005f;
+music[2].volume += 0.0005f;
+print("3");
+
+} 
+else if ( GameManager.Instance.timeRemaining < GameManager.Instance.initTimer / 4)
+{
+music[3].Play();
+music[2].volume -= 0.0005f;
+music[3].volume += 0.0005f;
+print("4");
+
+}
+
 }
 
 
 void DeathMusic()
 {
   
-if (GameManager.Instance.timeRemaining < 15f)
+if (GameManager.Instance.timeRemaining < 5f)
 {
   currentMusic.volume -= 0.0005f;
   music[2].volume -= 0.0005f;
