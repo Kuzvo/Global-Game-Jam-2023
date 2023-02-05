@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
 
 Vector3 camVec;
 
+public float playerHealth;
+
+bool hasIFrames;
 
  [SerializeField] Rigidbody2D rb;
 
@@ -59,4 +62,26 @@ Vector3 camVec;
 
        
     }
+
+public void DamagePlayer(int damage)
+{
+    if (hasIFrames)
+    return;
+    else 
+    {
+    hasIFrames = true;
+    playerHealth -= damage;
+    StartCoroutine(RemoveIFrames());
+    if (playerHealth == 0)
+    {
+        //call gg
+    }
+    }
+
+}
+IEnumerator RemoveIFrames()
+{
+yield return new WaitForSeconds (1f);
+hasIFrames = false;
+}
 }
