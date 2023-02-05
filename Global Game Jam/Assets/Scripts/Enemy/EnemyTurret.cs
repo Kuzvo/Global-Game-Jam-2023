@@ -6,7 +6,7 @@ public class EnemyTurret : MonoBehaviour
     // targetDir is the direction between the turret and the player
     Vector3 targetDir;
     // Player Reference
-    public GameObject player;
+    GameObject player;
     // Speed of the rotation
     public float speed;
     // Max following angle - blindspot (between -1 and 1)
@@ -32,7 +32,15 @@ public class EnemyTurret : MonoBehaviour
     {
         StartCoroutine(CheckDistance());
         // Finds the player game object
-        player = GameObject.Find("Player Model");
+        try
+        {
+            player = GameObject.Find("Player Model");
+        }
+        catch
+        {
+            Debug.Log("Players name is not: Player Model");
+        }
+        
     }
     private void Update()
     {
