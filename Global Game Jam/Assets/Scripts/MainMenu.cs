@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
+
+
     public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -25,11 +28,14 @@ public class MainMenu : MonoBehaviour
     {
         // Set Value
         Debug.Log("VFX ADJUSTED");
+        GameManager.Instance.audioManager.SetVolume(value);
     }
     public void SetMusicVolume(float value)
     {
         // Set Value
         Debug.Log("MUSIC ADJUSTED");
+        GameManager.Instance.audioManager.GetSliderMax(value);
+        
     }
 
     public void ChangeScreenSettings(int index)
