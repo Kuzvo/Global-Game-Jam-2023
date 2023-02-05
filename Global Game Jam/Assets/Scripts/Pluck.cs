@@ -8,6 +8,7 @@ public class Pluck : MonoBehaviour
     public float pluckStrength = -100f;
 
     public GameObject playerMove;
+    public GameObject blood;
 
     private void Update() 
     {
@@ -33,6 +34,7 @@ public class Pluck : MonoBehaviour
     {
         if (col.tag == "Spikes") {
 
+            Instantiate(blood, transform.position, Quaternion.identity);
             GetComponent<PlayerMovement>().DamagePlayer(1);
         }
     }
