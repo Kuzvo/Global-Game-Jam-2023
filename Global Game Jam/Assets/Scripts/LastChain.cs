@@ -15,7 +15,7 @@ public class LastChain : MonoBehaviour
     HingeJoint2D hingeJoint2D;
 
     [SerializeField]
-    float timeBetweenSpawn = 0.25f;
+    public float timeBetweenSpawn = 0.25f;
 
     private void Start()
     {
