@@ -11,6 +11,9 @@ public float enemyFOV;
 [SerializeField] bool seenPlayer;
 public float stalkerDamageDistance;
 
+
+[SerializeField] Animator anim;
+
 	protected const float DefaultUpdateTimeInSecondsForAI = 0.1f;
 
 	/// <summary>
@@ -177,7 +180,14 @@ void CreeperCheck()
 
 if (distance < creeperExplosionDistance/ 2)
 {
+	int counter = 0;
     CurrentVelocity = new Vector3(0f, 0f, 0f);
+if (counter < 1)
+{
+	counter ++;
+	//	GameManager.Instance.audioManager.PlayCreeperWindup();
+}
+
     StartCoroutine(CreeperExplode());
 }
 }
@@ -187,12 +197,14 @@ if (distance < creeperExplosionDistance/ 2)
     {
       yield return new WaitForSeconds (2f);
     // play animattion
+		anim.Play("CreeperExplodeAnim");
     GameManager.Instance.audioManager.PlayCreeperExplosion();
     if (distance < creeperExplosionDistance)
     {
-        
-        Destroy(gameObject);
+        player.GetComponent<PlayerMovement>().DamagePlayer(1);
+   
     }
+	     Destroy(gameObject);
     }
 
 	protected virtual void CooperativeArbitration()

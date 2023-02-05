@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 1176441687}
   - component: {fileID: 1176441689}
   - component: {fileID: 1176441690}
+  - component: {fileID: 1176441691}
   m_Layer: 0
   m_Name: w
   m_TagString: Creeper
@@ -452,7 +453,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -1078475084, guid: dea9333959d55a94d835f72c0b0de065, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -472,7 +473,7 @@ Transform:
   m_GameObject: {fileID: 1176441684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.99, y: 1.0643005, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.2286, y: 2.2286, z: 2.2286}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -491,9 +492,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0095419055, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.0801583
 --- !u!114 &1176441689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,6 +507,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca9b0901098bc74080b12bc81fe2b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creeperExplosionDistance: 10
+  enemyFOV: 20
+  seenPlayer: 1
+  stalkerDamageDistance: 0
+  anim: {fileID: 1176441691}
   maxUpdateTimeInSecondsForAI: 0.1
   <MaxCurrentSpeed>k__BackingField: 1
   <MaxSteeringSpeed>k__BackingField: 1
@@ -525,6 +531,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ShowDebugLines>k__BackingField: 1
+--- !u!95 &1176441691
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176441684}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 552ba1c2978832740b5cee7d70c9e3db, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1699894597
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,9 +691,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4670298062147688253, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670298062147688253, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 277780510}
+    - target: {fileID: 4670298062147688253, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: turretShoot
+      value: 
+      objectReference: {fileID: 8300000, guid: 1c46f82251f92344dbe8ad8194b43065, type: 3}
+    - target: {fileID: 4670298062147688253, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: creeperWindup
+      value: 
+      objectReference: {fileID: 8300000, guid: 14fb692f0048438449ba008b3220933e, type: 3}
     - target: {fileID: 4670298062147688253, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
       propertyPath: stalkerAttack
       value: 
@@ -733,6 +771,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 399812453}
+    - target: {fileID: 7743372984735207916, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
+      propertyPath: enemyFOV
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7743372984735207916, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
+      propertyPath: stalkerDamageDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7743372984735207919, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
       propertyPath: m_RootOrder
       value: 4
