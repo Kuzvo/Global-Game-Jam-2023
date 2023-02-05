@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class AudioManager : MonoBehaviour
 {
 
-[SerializeField] List<AudioSource> music = new List<AudioSource>();
+[SerializeField]public List<AudioSource> music = new List<AudioSource>();
 
 [SerializeField] AudioSource audioSource;
 
@@ -16,8 +16,8 @@ public float volume;
 AudioSource currentMusic;
 AudioSource nextMusic;
 
-bool transMusic;
-bool transDangerMusic;
+public bool transMusic;
+public bool transDangerMusic;
 
 bool isDangerMusicOn;
 
@@ -129,29 +129,40 @@ isDangerMusicOn = false;
 }
 }
 
+
+void MusicManager()
+{
+  if (GameManager.Instance.timeRemaining < GameManager.Instance.timeRemaining / 2)
+  {
+  TransitionMusic(currentMusic, nextMusic);
+  }
+  DeathMusic();
+}
+
+
 void DeathMusic()
 {
   
-if (music[0].volume == 0)
+if (GameManager.Instance.timeRemaining < 15f)
 {
-
   currentMusic.volume -= 0.0005f;
   music[2].volume -= 0.0005f;
   music[3].Play();
 
   music[3].volume += 0.0005f;
 
-  if (timer retsrt)
+  if (GameManager.Instance.timeRemaining <= 0)
   {
     
   music[3].volume -= 0.0005f;
-  if ( lifeeee restrt)
+  currentMusic = music[0];
+  music[0].volume += 0.0005f;
+  if (GameManager.Instance.respawn == false)
   {
-   music[3].Stop();
-   music[0].volume += 0.0005f;
+     music[3].Stop();
   }
 }
-
+}
 }
 
 public void PlayStalkerAttack()
