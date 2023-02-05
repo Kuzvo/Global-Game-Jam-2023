@@ -506,6 +506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca9b0901098bc74080b12bc81fe2b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyFOV: 0
+  seenPlayer: 0
+  stalkerDamageDistance: 0
   maxUpdateTimeInSecondsForAI: 0.1
   <MaxCurrentSpeed>k__BackingField: 1
   <MaxSteeringSpeed>k__BackingField: 1
@@ -733,6 +736,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 399812453}
+    - target: {fileID: 7743372984735207916, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
+      propertyPath: enemyFOV
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7743372984735207916, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
+      propertyPath: seenPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7743372984735207916, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
+      propertyPath: stalkerDamageDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7743372984735207919, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
       propertyPath: m_RootOrder
       value: 4
