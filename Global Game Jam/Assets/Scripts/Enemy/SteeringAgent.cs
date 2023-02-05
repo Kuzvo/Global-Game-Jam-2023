@@ -53,6 +53,10 @@ public bool hasAttacked;
 float distance;
 float audioCounter;
 
+bool facingright;
+
+        float preXPos;
+
 public GameObject stalkerPrefab;
 
 	/// <summary>
@@ -68,10 +72,7 @@ public GameObject stalkerPrefab;
 		}
 
 		UpdatePosition();
-		UpdateDirection();
-
-
-CreeperCheck();
+	
 
 if (hasAttacked)
 { 
@@ -83,6 +84,7 @@ distance = (player.gameObject.transform.position - transform.position).magnitude
 
 StalkerDistanceCheck();
 	}
+
 
 IEnumerator StalkerReagress()
 {
@@ -96,6 +98,7 @@ IEnumerator StalkerReagress()
         }
        
 }
+
 void StalkerDistanceCheck()
 {
     if (gameObject.tag == "Stalker")
@@ -193,12 +196,13 @@ if (distance < 5f)
 	/// Sets the direction of the triangle to the direction it is moving in to give the illusion it is turning. Try taking out the function
 	/// call in Update() to see what happens
 	/// </summary>
-	protected virtual void UpdateDirection()
+/*	protected virtual void UpdateDirection()
 	{
 		// Don't set the direction if no direction
 		if (CurrentVelocity.sqrMagnitude > 0.0f)
 		{
 			transform.up = Vector3.Normalize(new Vector3(CurrentVelocity.x, CurrentVelocity.y, 0.0f));
 		}
-	}
+	}#
+    */
 }
