@@ -43,6 +43,7 @@ public class Bullet : MonoBehaviour
         // TODO: Bullet Hits
 if (collision.gameObject.tag == "Player")
 {
+    if (Player != null)
     Player.GetComponent<PlayerMovement>().DamagePlayer(1);
 }
         Debug.Log("Bullet hit Object: " + collision.name);

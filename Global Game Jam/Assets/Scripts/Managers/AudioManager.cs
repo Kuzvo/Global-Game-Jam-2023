@@ -117,6 +117,7 @@ isDangerMusicOn = false;
 
 void MusicManager()
 {
+
   if (GameManager.Instance.respawn == true)
   {
 music[0].Play();
