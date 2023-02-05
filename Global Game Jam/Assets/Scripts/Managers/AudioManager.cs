@@ -1,6 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
+
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class AudioManager : MonoBehaviour
 {
@@ -8,8 +11,10 @@ public class AudioManager : MonoBehaviour
 [SerializeField] List<AudioSource> music = new List<AudioSource>();
 
 [SerializeField] AudioSource audioSource;
+[SerializeField] Slider slider;
 
 
+float volume;
 AudioSource currentMusic;
 AudioSource nextMusic;
 
@@ -25,6 +30,15 @@ bool isDangerMusicOn;
 
 [SerializeField] List<AudioClip> ambience = new List<AudioClip>();
 
+float timer, timerMax, maxVolume;
+
+
+public void SetVolume(float sliderValue)
+{
+  sliderValue = volume;
+  audioSource.volume = volume;
+}
+ 
 void Start()
 {
   currentMusic = music[0];
@@ -33,6 +47,14 @@ void Start()
 
 void Update()
 {
+
+timer += Time.deltaTime;
+
+if (timer > timerMax)
+{
+  PlayAmbience();
+  timer = 0;
+}
 
 if(Input.GetMouseButtonDown(0))
 {  
@@ -56,6 +78,11 @@ TransitionDangerMusic();
 
 }
 
+public void GetSliderMax(float value)
+{
+  value = maxVolume;
+}
+
 void TransitionMusic(AudioSource startMusic, AudioSource endMusic)
 {
 
@@ -64,7 +91,7 @@ void TransitionMusic(AudioSource startMusic, AudioSource endMusic)
 startMusic.volume -= 0.0005f;
 endMusic.volume += 0.0005f;
 
-if ( currentMusic.volume == 0f && endMusic.volume == 1f)
+if ( currentMusic.volume == 0f && endMusic.volume > maxVolume)
 {
 transMusic = false;
 
@@ -105,18 +132,18 @@ isDangerMusicOn = false;
 
 public void PlayStalkerAttack()
 {
-  audioSource.PlayOneShot(stalkerAttack);
+  audioSource.PlayOneShot(stalkerAttack, volume);
 }
 
 
 public void PlayStalkerReagress()
 {
-  audioSource.PlayOneShot(stalkerReagress);
+  audioSource.PlayOneShot(stalkerReagress, volume);
 
 }
 public void PlayCreeperExplosion()
 {
-  audioSource.PlayOneShot(creeperExplosion);
+  audioSource.PlayOneShot(creeperExplosion, volume);
 }
 
 
@@ -124,7 +151,7 @@ public void PlayAmbience()
 {
 int ranAmbience = Random.Range(0, ambience.Count);
 
- audioSource.PlayOneShot(ambience[ranAmbience]);
+ audioSource.PlayOneShot(ambience[ranAmbience], volume);
 }
 
 }

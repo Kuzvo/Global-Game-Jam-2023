@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float playerHealth;
+    public float playerHealth = 3;
 
 bool hasIFrames;
 
@@ -23,6 +23,8 @@ Vector3 camVec;
     public Sprite right;
     public Sprite left;
 
+    
+
     [SerializeField] Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -38,9 +40,6 @@ Vector3 camVec;
     {
         PlayerMove();
 
-        if (Input.GetKeyDown(KeyCode.U)) {
-            cam = null;
-        }
     }
 
     void PlayerMove()
@@ -51,10 +50,10 @@ Vector3 camVec;
         if (rb.velocity.magnitude < 0.1f) {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = idle;
 
-        } else if (rb.velocity.magnitude > 0.1f && Input.GetKeyDown(KeyCode.A)) {
+        } else if (rb.velocity.magnitude > 0.1f && (Input.GetKeyDown(KeyCode.A)) || Input.GetKeyDown(KeyCode.LeftArrow)) {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = left;
 
-        } else if (rb.velocity.magnitude > 0.1f && Input.GetKeyDown(KeyCode.D)) {
+        } else if (rb.velocity.magnitude > 0.1f && Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = right;
         }
 
@@ -83,7 +82,7 @@ public void DamagePlayer(int damage)
     StartCoroutine(RemoveIFrames());
     if (playerHealth == 0)
     {
-        //call gg
+                GetComponent<Pluck>().Plucknfuck();
     }
     }
 
