@@ -129,30 +129,7 @@ isDangerMusicOn = false;
 }
 }
 
-void DeathMusic()
-{
-  
-if (music[0].volume == 0)
-{
 
-  currentMusic.volume -= 0.0005f;
-  music[2].volume -= 0.0005f;
-  music[3].Play();
-
-  music[3].volume += 0.0005f;
-
-  if (timer retsrt)
-  {
-    
-  music[3].volume -= 0.0005f;
-  if ( lifeeee restrt)
-  {
-   music[3].Stop();
-   music[0].volume += 0.0005f;
-  }
-}
-
-}
 
 public void PlayStalkerAttack()
 {
