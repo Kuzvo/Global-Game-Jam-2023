@@ -25,6 +25,10 @@ bool isDangerMusicOn;
 [SerializeField]AudioClip stalkerReagress;
 
 [SerializeField] AudioClip creeperExplosion;
+[SerializeField] AudioClip turretShoot;
+[SerializeField] AudioClip creeperWindup;
+
+
 
 [SerializeField] List<AudioClip> ambience = new List<AudioClip>();
 
@@ -142,10 +146,17 @@ public void PlayStalkerReagress()
 }
 public void PlayCreeperExplosion()
 {
-  audioSource.PlayOneShot(creeperExplosion, volume);
+  audioSource.PlayOneShot(creeperExplosion);
+}
+public void PlayTurretShoot()
+{
+  audioSource.PlayOneShot(turretShoot, volume);
 }
 
-
+public void PlayCreeperWindup()
+{
+  audioSource.PlayOneShot(creeperWindup);
+}
 public void PlayAmbience()
 {
 int ranAmbience = Random.Range(0, ambience.Count);
