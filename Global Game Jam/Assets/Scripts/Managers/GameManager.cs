@@ -55,6 +55,8 @@ public bool respawn;
             respawn = true;
             timeRemaining = initTimer;
             StartCoroutine(RespawnBool());
+            audioManager.music[3].volume -= 0.0005f;
+            audioManager.music[0].volume += 0.0005f;
         }
 
     }

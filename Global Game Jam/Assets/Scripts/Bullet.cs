@@ -41,6 +41,10 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // TODO: Bullet Hits
+if (collision.gameObject.tag == "Player")
+{
+    Player.GetComponent<PlayerMovement>().DamagePlayer(1);
+}
         Debug.Log("Bullet hit Object: " + collision.name);
         Destroy(gameObject);
     }
