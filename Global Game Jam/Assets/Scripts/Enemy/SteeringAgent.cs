@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 
@@ -100,7 +100,6 @@ if (distance < enemyFOV)
 else if(distance > enemyFOV)
 {
 	seenPlayer = false;
-
 }
 
 if (hasAttacked)

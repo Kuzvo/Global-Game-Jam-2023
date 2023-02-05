@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     // Current Game State
     public bool gameState = true;
-
+public bool respawn;
 
     public float timerEmpty;
     public float initTimer;
@@ -51,9 +51,18 @@ public class GameManager : MonoBehaviour
         if (timeRemaining > 0f && gameState == true) {
             timeRemaining -= Time.deltaTime;
         } else {
+            respawn = true;
             timeRemaining = initTimer;
+            StartCoroutine(RespawnBool());
+            audioManager.music[3].volume -= 0.0005f;
+            audioManager.music[0].volume += 0.0005f;
         }
 
     }
 
+IEnumerator RespawnBool()
+{
+    yield return new WaitForSeconds (1f);
+    respawn = false;
+}
 }

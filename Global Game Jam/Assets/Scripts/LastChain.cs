@@ -15,7 +15,7 @@ public class LastChain : MonoBehaviour
     HingeJoint2D hingeJoint2D;
 
     [SerializeField]
-    float timeBetweenSpawn = 0.25f;
+    public float timeBetweenSpawn = 0.25f;
 
     private void Start()
     {
@@ -25,7 +25,6 @@ public class LastChain : MonoBehaviour
     private void OnJointBreak2D(Joint2D joint)
     {
         isAble = false;
-        Debug.Log("Hinge Broken");
         GameObject newHinge = Instantiate(hingePrefab, lastLink.transform.position, Quaternion.identity, null);
         newHinge.GetComponent<HingeJoint2D>().connectedBody = lastLink.GetComponent<Rigidbody2D>();
 

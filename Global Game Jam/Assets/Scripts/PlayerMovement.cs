@@ -100,7 +100,7 @@ IEnumerator DamageFlicker() {
     }
 
     IEnumerator HeartReduce() {
-
+/*
         if(heart3.enabled) {
             
             heart3.enabled = !heart3.enabled;
@@ -111,7 +111,8 @@ IEnumerator DamageFlicker() {
         else if (!heart3.enabled && !heart2.enabled) {
             heart1.enabled = !heart1.enabled;
         }
-
+ */
         yield return null;
     }
+   
 }
