@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pluck : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class Pluck : MonoBehaviour
             chainStart.AddForce(transform.up * pluckStrength);
             yield return new WaitForSeconds(0.1f);
         }
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("Finn");
     }
 
     public void OnTriggerEnter2D(Collider2D col) 

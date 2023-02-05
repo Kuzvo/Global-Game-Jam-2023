@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Retraction : MonoBehaviour
 {
@@ -48,8 +49,6 @@ public class Retraction : MonoBehaviour
         pluck.GetComponent<Pluck>().Plucknfuck();
         yield return new WaitForSeconds(2.0f);
         Destroy(player);
-
-        player = Instantiate(playerPrefab, hubLocation.transform.position, Quaternion.identity, null);
-
+        
     }
 }
