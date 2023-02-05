@@ -32,7 +32,7 @@ bool isDangerMusicOn;
 
 [SerializeField] List<AudioClip> ambience = new List<AudioClip>();
 
-float timer, timerMax, maxVolume;
+public float timer, timerMax;
 
 
 public void SetVolume(float sliderValue)
@@ -59,6 +59,7 @@ if (timer > timerMax)
   timer = 0;
 }
 
+
 if(Input.GetMouseButtonDown(0))
 {  
   transMusic = true;
@@ -81,10 +82,6 @@ TransitionDangerMusic();
 
 }
 
-public void GetSliderMax(float value)
-{
-  maxVolume = value;
-}
 
 void TransitionMusic(AudioSource startMusic, AudioSource endMusic)
 {
@@ -94,7 +91,7 @@ void TransitionMusic(AudioSource startMusic, AudioSource endMusic)
 startMusic.volume -= 0.0005f;
 endMusic.volume += 0.0005f;
 
-if ( currentMusic.volume == 0f && endMusic.volume > maxVolume)
+if ( currentMusic.volume == 0f && endMusic.volume > 1)
 {
 transMusic = false;
 
@@ -112,7 +109,7 @@ void TransitionDangerMusic()
 currentMusic.volume -= 0.0005f;
 music[2].volume += 0.0005f;
 
-if ( currentMusic.volume == 0f && music[2].volume == maxVolume)
+if ( currentMusic.volume == 0f && music[2].volume == 1)
 {
 transDangerMusic = false;
 isDangerMusicOn = true;
@@ -124,7 +121,7 @@ else
 
 currentMusic.volume += 0.0005f;
 music[2].volume -= 0.0005f;
-if ( currentMusic.volume == maxVolume && music[2].volume == 0f)
+if ( currentMusic.volume == 1 && music[2].volume == 0f)
 {
 transDangerMusic = false;
 isDangerMusicOn = false;
@@ -132,16 +129,40 @@ isDangerMusicOn = false;
 }
 }
 
+void DeathMusic()
+{
+  
+if (music[0].volume == 0)
+{
+
+  currentMusic.volume -= 0.0005f;
+  music[2].volume -= 0.0005f;
+  music[3].Play();
+
+  music[3].volume += 0.0005f;
+
+  if (timer retsrt)
+  {
+    
+  music[3].volume -= 0.0005f;
+  if ( lifeeee restrt)
+  {
+   music[3].Stop();
+   music[0].volume += 0.0005f;
+  }
+}
+
+}
 
 public void PlayStalkerAttack()
 {
-  audioSource.PlayOneShot(stalkerAttack, volume);
+  audioSource.PlayOneShot(stalkerAttack);
 }
 
 
 public void PlayStalkerReagress()
 {
-  audioSource.PlayOneShot(stalkerReagress, volume);
+  audioSource.PlayOneShot(stalkerReagress);
 
 }
 public void PlayCreeperExplosion()
@@ -150,7 +171,7 @@ public void PlayCreeperExplosion()
 }
 public void PlayTurretShoot()
 {
-  audioSource.PlayOneShot(turretShoot, volume);
+  audioSource.PlayOneShot(turretShoot);
 }
 
 public void PlayCreeperWindup()
@@ -161,7 +182,7 @@ public void PlayAmbience()
 {
 int ranAmbience = Random.Range(0, ambience.Count);
 
- audioSource.PlayOneShot(ambience[ranAmbience], volume);
+ audioSource.PlayOneShot(ambience[ranAmbience]);
 }
 
 }

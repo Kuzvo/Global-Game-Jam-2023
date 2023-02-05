@@ -67,6 +67,12 @@ bool facingright;
 
         float preXPos;
 
+
+		void Awake()
+		{
+			player = GameObject.FindGameObjectWithTag("Player");
+		}
+
 public GameObject stalkerPrefab;
 
 	/// <summary>
@@ -167,9 +173,10 @@ yield return new WaitForSeconds (0.3f);
        Vector3 prevPoint = new Vector3(transform.position.x,transform.position.y, transform.position.z );
             stalkerPrefab = (GameObject)Instantiate(stalkerPrefab, prevPoint, Quaternion.identity);
   	transform.Rotate(0,180,0);
-Destroy(gameObject); 
-               player.GetComponent<PlayerMovement>().DamagePlayer(1); 
+	    player.GetComponent<PlayerMovement>().DamagePlayer(1); 
               GameManager.Instance.audioManager.PlayStalkerAttack();
+Destroy(gameObject); 
+           
             
 }
 
