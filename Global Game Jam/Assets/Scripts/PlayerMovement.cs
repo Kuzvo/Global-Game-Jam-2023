@@ -7,11 +7,11 @@ public class PlayerMovement : MonoBehaviour
 {
     public float playerHealth = 3;
 
-bool hasIFrames;
+   public  bool hasIFrames;
 
- [SerializeField] float playerSpd;
- float moveX;
- float moveY;
+    [SerializeField] float playerSpd;
+    float moveX;
+    float moveY;
 
     public Image heart1;
     public Image heart2;
@@ -20,7 +20,7 @@ bool hasIFrames;
 
     [SerializeField] Camera cam;
 
-Vector3 camVec;
+    Vector3 camVec;
 
     public Sprite idle;
     public Sprite right;
@@ -30,10 +30,12 @@ Vector3 camVec;
 
     [SerializeField] Rigidbody2D rb;
 
+    public AudioSource hit;
+
     // Start is called before the first frame update
     void Awake()
     {
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = idle;  
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = idle;
     }
 
     // Update is called once per frame
@@ -47,51 +49,68 @@ Vector3 camVec;
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
 
-        if (rb.velocity.magnitude < 0.1f) {
+        if (rb.velocity.magnitude < 0.1f)
+        {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = idle;
 
-        } else if (rb.velocity.magnitude > 0.1f && (Input.GetKeyDown(KeyCode.A)) || Input.GetKeyDown(KeyCode.LeftArrow)) {
+        }
+        else if (rb.velocity.magnitude > 0.1f && (Input.GetKeyDown(KeyCode.A)) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = left;
 
-        } else if (rb.velocity.magnitude > 0.1f && Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
+        }
+        else if (rb.velocity.magnitude > 0.1f && Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = right;
         }
 
-        rb.velocity = new Vector2( playerSpd * moveX, playerSpd * moveY);
+        rb.velocity = new Vector2(playerSpd * moveX, playerSpd * moveY);
 
-       camVec = new Vector3(transform.position.x, transform.position.y, cam.transform.position.z);
+        camVec = new Vector3(transform.position.x, transform.position.y, cam.transform.position.z);
 
-       cam.transform.position = camVec;
+        cam.transform.position = camVec;
 
-       
+
     }
 
-public void DamagePlayer(int damage)
-{
-    if (hasIFrames)
-    return;
-    else 
+    public void DamagePlayer(int damage)
     {
-    hasIFrames = true;
-    playerHealth -= damage;
+        if (hasIFrames)
+            return;
+        else
+        {
+           hit.Play();
+            hasIFrames = true;
+            playerHealth -= damage;
             StartCoroutine(DamageFlicker());
             StartCoroutine(HeartReduce());
-    StartCoroutine(RemoveIFrames());
-    if (playerHealth == 0)
-    {
+            StartCoroutine(RemoveIFrames());
+            if (playerHealth == 2)
+            {
+                heart3.enabled = false;
+            }
+            if (playerHealth == 1)
+            {
+                heart2.enabled = false;
+            }
+            if (playerHealth == 0)
+            {
+                heart1.enabled = false;
+
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = dead;
                 GetComponent<Pluck>().Plucknfuck();
+            }
+        }
+
     }
+    IEnumerator RemoveIFrames()
+    {
+        yield return new WaitForSeconds(1f);
+        hasIFrames = false;
     }
 
-}
-IEnumerator RemoveIFrames()
-{
-yield return new WaitForSeconds (1f);
-hasIFrames = false;
-}
-
-IEnumerator DamageFlicker() {
+    IEnumerator DamageFlicker()
+    {
 
         this.gameObject.GetComponent<SpriteRenderer>().sprite = flicker;
         yield return new WaitForSeconds(0.1f);
@@ -99,19 +118,20 @@ IEnumerator DamageFlicker() {
 
     }
 
-    IEnumerator HeartReduce() {
-/*
-        if(heart3.enabled) {
-            
-            heart3.enabled = !heart3.enabled;
-        }
-        else if (!heart3.enabled && heart2.enabled) {
-            heart2.enabled = !heart2.enabled;
-        }
-        else if (!heart3.enabled && !heart2.enabled) {
-            heart1.enabled = !heart1.enabled;
-        }
- */
+    IEnumerator HeartReduce()
+    {
+        /*
+                if(heart3.enabled) {
+
+                    heart3.enabled = !heart3.enabled;
+                }
+                else if (!heart3.enabled && heart2.enabled) {
+                    heart2.enabled = !heart2.enabled;
+                }
+                else if (!heart3.enabled && !heart2.enabled) {
+                    heart1.enabled = !heart1.enabled;
+                }
+         */
         yield return null;
     }
     private void OnTriggerEnter2D(Collider2D collision)

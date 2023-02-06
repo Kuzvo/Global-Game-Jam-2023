@@ -10,6 +10,8 @@ public class Pluck : MonoBehaviour
 
     public GameObject blood;
 
+    public AudioSource death;
+
     private void Update() 
     { 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -19,12 +21,13 @@ public class Pluck : MonoBehaviour
     }
     IEnumerator PluckAway()
     {
+        death.Play();
         for (int i = 0; i < 10; i++)
         {
             chainStart.AddForce(transform.up * pluckStrength);
             yield return new WaitForSeconds(0.1f);
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("Sam");
     }
 

@@ -26,6 +26,7 @@ public class Bullet : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, targetPos, bulletSpeed * Time.deltaTime);
 
             transform.up = targetPos - transform.position;
+            transform.rotation = new Quaternion(0, 0, transform.rotation.z, 0);
         }
             
     }

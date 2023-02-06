@@ -120,12 +120,10 @@ public class SteeringAgent : MonoBehaviour
 		{
 			if (flipDis > 0 && !facingright)
 			{
-				transform.Rotate(0, 180, 0);
 				facingright = true;
 			}
 			else if (flipDis < 0 && facingright)
 			{
-				transform.Rotate(0, 180f, 0);
 				facingright = false;
 			}
 		}
@@ -138,13 +136,13 @@ public class SteeringAgent : MonoBehaviour
 	{
 
 		yield return new WaitForSeconds(1.5f);
-
-		hasAttacked = false;
+		if (hasAttacked == true)
+        {
+			hasAttacked = false;
+			transform.Rotate(0, 180, 0);
+		}
 		if (audioCounter == 0)
 		{
-
-			transform.Rotate(0, 180, 0);
-
 			audioCounter += 1;
 			GameManager.Instance.audioManager.PlayStalkerReagress();
 		}
@@ -169,16 +167,12 @@ public class SteeringAgent : MonoBehaviour
 	{
 		yield return new WaitForSeconds(0.3f);
 
-		Vector3 prevPoint = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-		stalkerPrefab = (GameObject)Instantiate(stalkerPrefab, prevPoint, Quaternion.identity);
-		transform.Rotate(0, 180, 0);
-		if (player != null)
+		if (player != null && player.GetComponent<PlayerMovement>().hasIFrames == false)
 		{
 			player.GetComponent<PlayerMovement>().DamagePlayer(1);
+			GameManager.Instance.audioManager.PlayStalkerAttack();
+			transform.Rotate(0, 180, 0);
 		}
-		GameManager.Instance.audioManager.PlayStalkerAttack();
-		Destroy(gameObject);
-
 
 	}
 

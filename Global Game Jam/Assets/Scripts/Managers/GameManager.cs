@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,13 +13,15 @@ public class GameManager : MonoBehaviour
 
     // Current Game State
     public bool gameState = true;
-public bool respawn;
+    public bool respawn;
 
     public float timerEmpty;
     public float initTimer;
     public float timeRemaining;
 
     public AudioManager audioManager { get; private set; }
+
+    public Image uiOuter;
 
     private void Awake()
     {
@@ -32,7 +35,7 @@ public bool respawn;
             Destroy(gameObject);
         }
 
-            audioManager = GetComponent<AudioManager>();
+        audioManager = GetComponent<AudioManager>();
 
         timeRemaining = initTimer;
 
@@ -42,15 +45,21 @@ public bool respawn;
     private void Update()
     {
         Timer();
-    
+        var tempColor = uiOuter.color;
+        tempColor.a = (initTimer - timeRemaining) / initTimer;
+        uiOuter.color = tempColor;
     }
 
 
-    public void Timer() {
+    public void Timer()
+    {
 
-        if (timeRemaining > 0f && gameState == true) {
+        if (timeRemaining > 0f && gameState == true)
+        {
             timeRemaining -= Time.deltaTime;
-        } else {
+        }
+        else
+        {
             respawn = true;
             timeRemaining = initTimer;
             StartCoroutine(RespawnBool());
@@ -60,9 +69,9 @@ public bool respawn;
 
     }
 
-IEnumerator RespawnBool()
-{
-    yield return new WaitForSeconds (1f);
-    respawn = false;
-}
+    IEnumerator RespawnBool()
+    {
+        yield return new WaitForSeconds(1f);
+        respawn = false;
+    }
 }
