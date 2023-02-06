@@ -90438,9 +90438,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 0
   hubLocation: {fileID: 543061844}
-  player: {fileID: 0}
+  player: {fileID: 1278256196}
   playerPrefab: {fileID: 0}
-  pluck: {fileID: 0}
+  pluck: {fileID: 1278256196}
   gameState: 0
   gameManager: {fileID: 572581816}
 --- !u!4 &1700801875
@@ -112020,6 +112020,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 277780509, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
+      propertyPath: initTimer
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 4670298062147688251, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
       propertyPath: m_Name
       value: Audio Manager
