@@ -11,14 +11,6 @@ public class Pluck : MonoBehaviour
     public GameObject blood;
 
     public AudioSource death;
-
-    private void Update() 
-    { 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Plucknfuck();
-        }
-    }
     IEnumerator PluckAway()
     {
         death.Play();

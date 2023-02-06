@@ -25,8 +25,6 @@ public class MainMenu : MonoBehaviour
         QualitySettings.SetQualityLevel(index, true);
         if (index == 3)
             Time.fixedDeltaTime = 0.002f;
-        else
-            Time.fixedDeltaTime = 0.02f;
     }
 
     public void SetVFXVolume(float value)
