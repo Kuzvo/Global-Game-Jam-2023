@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7743372984735207923}
   - component: {fileID: 7743372984735207912}
   - component: {fileID: 7743372984735207913}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: stalker
   m_TagString: Stalker
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7743372984735207922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.87, y: -2.8, z: 0}
-  m_LocalScale: {x: 2.033662, y: 2.033662, z: 2.033662}
+  m_LocalScale: {x: 2.5918105, y: 2.5918105, z: 2.5918105}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,9 +101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creeperExplosionDistance: 0
-  enemyFOV: 30
+  enemyFOV: 20
   seenPlayer: 0
-  stalkerDamageDistance: 3
+  stalkerDamageDistance: 4
   anim: {fileID: 0}
   maxUpdateTimeInSecondsForAI: 0.1
   <MaxCurrentSpeed>k__BackingField: 4

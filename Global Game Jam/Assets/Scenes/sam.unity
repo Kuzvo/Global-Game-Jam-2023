@@ -6877,28 +6877,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1278256196}
     - target: {fileID: 7743372984735207916, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
-      propertyPath: enemyFOV
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743372984735207916, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
-      propertyPath: stalkerDamageDistance
-      value: 4
+      propertyPath: <MaxCurrentSpeed>k__BackingField
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7743372984735207919, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
       propertyPath: m_RootOrder
       value: 95
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743372984735207919, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.5918105
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743372984735207919, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.5918105
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743372984735207919, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.5918105
       objectReference: {fileID: 0}
     - target: {fileID: 7743372984735207919, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6943,10 +6927,6 @@ PrefabInstance:
     - target: {fileID: 7743372984735207922, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
       propertyPath: m_Name
       value: stalker (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743372984735207922, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
-      propertyPath: m_Layer
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
@@ -24684,7 +24664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1484252301, guid: 70ccb354373c6d242ba673a164d719f0, type: 3}
       propertyPath: timeBetweenSpawn
-      value: 0.15
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1375623533767639857, guid: 70ccb354373c6d242ba673a164d719f0, type: 3}
       propertyPath: m_RootOrder
@@ -24794,6 +24774,10 @@ PrefabInstance:
       propertyPath: flicker
       value: 
       objectReference: {fileID: 21300000, guid: e66fd1f24d15b6a4f97198e8ee5b945f, type: 3}
+    - target: {fileID: 7813210210503856169, guid: 70ccb354373c6d242ba673a164d719f0, type: 3}
+      propertyPath: playerSpd
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70ccb354373c6d242ba673a164d719f0, type: 3}
 --- !u!4 &476489794 stripped
@@ -28490,7 +28474,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &537632991
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30524,7 +30508,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &579186666
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32707,6 +32691,14 @@ PrefabInstance:
     - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
       propertyPath: creeperExplosionDistance
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
+      propertyPath: <MaxCurrentSpeed>k__BackingField
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
+      propertyPath: <MaxSteeringSpeed>k__BackingField
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
@@ -37397,6 +37389,14 @@ PrefabInstance:
       propertyPath: creeperExplosionDistance
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
+      propertyPath: <MaxCurrentSpeed>k__BackingField
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
+      propertyPath: <MaxSteeringSpeed>k__BackingField
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
 --- !u!1001 &723568403
@@ -37833,6 +37833,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7743372984735207916, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
+      propertyPath: <MaxCurrentSpeed>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7743372984735207919, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
       propertyPath: m_RootOrder
       value: 105
@@ -55646,6 +55650,14 @@ PrefabInstance:
       propertyPath: creeperExplosionDistance
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
+      propertyPath: <MaxCurrentSpeed>k__BackingField
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
+      propertyPath: <MaxSteeringSpeed>k__BackingField
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
 --- !u!1 &1043833626
@@ -56761,6 +56773,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7743372984735207916, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
+      propertyPath: <MaxCurrentSpeed>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7743372984735207919, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
       propertyPath: m_RootOrder
       value: 125
@@ -56899,6 +56915,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7743372984735207916, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
+      propertyPath: <MaxCurrentSpeed>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7743372984735207919, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
       propertyPath: m_RootOrder
       value: 185
@@ -69369,6 +69389,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
+      propertyPath: <MaxCurrentSpeed>k__BackingField
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
+      propertyPath: <MaxSteeringSpeed>k__BackingField
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
 --- !u!1001 &1273172855
@@ -71288,6 +71316,14 @@ PrefabInstance:
     - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
       propertyPath: enemyFOV
       value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
+      propertyPath: <MaxCurrentSpeed>k__BackingField
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
+      propertyPath: <MaxSteeringSpeed>k__BackingField
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
@@ -83042,6 +83078,14 @@ PrefabInstance:
     - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
       propertyPath: creeperExplosionDistance
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
+      propertyPath: <MaxCurrentSpeed>k__BackingField
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
+      propertyPath: <MaxSteeringSpeed>k__BackingField
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
@@ -99512,11 +99556,15 @@ PrefabInstance:
       objectReference: {fileID: 1278256196}
     - target: {fileID: 7743372984735207916, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
       propertyPath: enemyFOV
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7743372984735207916, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
       propertyPath: stalkerDamageDistance
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7743372984735207916, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
+      propertyPath: <MaxCurrentSpeed>k__BackingField
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7743372984735207919, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
       propertyPath: m_RootOrder
@@ -99536,11 +99584,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7743372984735207919, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -89.152
+      value: -85.99
       objectReference: {fileID: 0}
     - target: {fileID: 7743372984735207919, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 277.73
+      value: 275.06
       objectReference: {fileID: 0}
     - target: {fileID: 7743372984735207919, guid: ed9eb5821fd00ab43ade207a640bca85, type: 3}
       propertyPath: m_LocalPosition.z
@@ -110181,6 +110229,14 @@ PrefabInstance:
       propertyPath: creeperExplosionDistance
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
+      propertyPath: <MaxCurrentSpeed>k__BackingField
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201662498342151305, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
+      propertyPath: <MaxSteeringSpeed>k__BackingField
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 613e67a197fe8e7438a0e6c2d1fe5766, type: 3}
 --- !u!1 &2114238595
@@ -110248,7 +110304,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &2114238598
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -112022,7 +112078,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 277780509, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
       propertyPath: initTimer
-      value: 120
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 4670298062147688251, guid: e0808a08fd3426348a148bb93e27f0de, type: 3}
       propertyPath: m_Name

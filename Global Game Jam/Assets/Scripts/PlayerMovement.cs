@@ -114,5 +114,11 @@ IEnumerator DamageFlicker() {
  */
         yield return null;
     }
-   
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.name);
+        if (collision.tag == "Spikes")
+            GetComponent<PlayerMovement>().DamagePlayer(1);
+    }
+
 }
