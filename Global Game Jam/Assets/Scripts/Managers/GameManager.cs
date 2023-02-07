@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
         var tempColor = uiOuter.color;
         tempColor.a = (initTimer - timeRemaining) / initTimer;
         uiOuter.color = tempColor;
+        if (timeRemaining < 10)
+            GameObject.Find("Player Model").GetComponent<PlayerMovement>().DamagePlayer(3);
     }
 
 
